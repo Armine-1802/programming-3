@@ -1,14 +1,44 @@
-let express = require("express");
-let app = express();
+//Lesson 3
 
-app.use(express.static("."));
+// let express = require("express");
+// let app = express();
 
-app.get("/", function (req, res) {
-res.redirect("index.html");
-});
+// app.use(express.static("."));
 
-app.listen(3000, function () {
-console.log("Example is running on port 3000");
-})
+// app.get("/", function (req, res) {
+// res.redirect("index.html");
+// });
 
-console.log("hello")
+// app.listen(3000, function () {
+// console.log("Example is running on port 3000");
+// })
+
+// console.log("hello")
+
+
+
+//Lesson 2
+
+
+let a = [1,2,5,8,7]
+
+console.log(a[1])
+
+
+let obj = {
+    mek:1,
+    anun: "Armine",
+    usanux: true,
+
+}
+
+// JSON.stringify - changed js objects to string
+
+let result = JSON.stringify(obj)
+
+// JSON.parse(result) change string to object
+
+
+console.log(obj.anun)
+
+obj.showInfo()
