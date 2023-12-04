@@ -1,0 +1,44 @@
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,255,0,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+canvas {
+    margin-left: 36%;
+    margin-top: -18%;
+}
+
+h1 , h2{
+    text-align: center;
+    font-size: 56px;
+    margin-top: 5%;
+    text-shadow: 5px 2px lightslategray;
+    color: brown;   
+}
+
+h3{
+    font-size: 20px;
+    color: azure;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 34%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
