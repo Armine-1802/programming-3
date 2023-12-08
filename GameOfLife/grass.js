@@ -1,23 +1,23 @@
-class Grass extends LivingCreature{
+class Grass extends LivingCreature {
 
-    mul(){
+    mul() {
         this.multiply++
         let emptyCells = this.choosCell(0)
         let newCell = random(emptyCells)
 
-        if(newCell && this.multiply >= 3){
+        if (newCell && this.multiply >= 3) {
 
             let newX = newCell[0]
             let newY = newCell[1]
 
-            matrix[newY] [newX] = 1 
+            matrix[newY][newX] = 1
 
-            let grass = new Grass(newX,newY)
+            let grass = new Grass(newX, newY)
             grassArr.push(grass)
 
-            this.multiply = 0 
+            this.multiply = 0
 
         }
     }
-    
+
 }
