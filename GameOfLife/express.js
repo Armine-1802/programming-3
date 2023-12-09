@@ -58,11 +58,20 @@
 
 
 
-let fs = require('fs');
-function main(){
-fs.writeFile("hello.txt", "Hello world\n", function(err){
-console.log("fs.writeFile ended");
-});
-console.log("fs.writeFile");
-}
-main();
+// let fs = require('fs');
+// function main(){
+// fs.writeFile("hello.txt", "Hello world\n", function(err){
+// console.log("fs.writeFile ended");
+// });
+// console.log("fs.writeFile");
+// }
+// main();
+
+
+// app.get("/name/:name", function (req, res) {
+//     var name = req.params.name;
+//     res.send("<h1>Hello " + name + "</h1>");
+//     res.redirect('http://google.com')
+// });
+
+
