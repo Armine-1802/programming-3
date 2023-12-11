@@ -1,4 +1,6 @@
-class Bambuk extends LivingCreature {
+let LivingCreature = require("./LivingCreature")
+
+module.exports = class Bambuk extends LivingCreature {
 
     mul() {
         this.multiply++

@@ -1,9 +1,11 @@
-class GrassEater extends LivingCreature {
+let LivingCreature = require("./LivingCreature")
+
+module.exports = class Patap extends LivingCreature {
     constructor(x, y) {
         super(x, y)
-        this.energy = 20
-    }
+        this.energy = 150
 
+    }
 
     getNewCoordinates() {
         this.directions = [
@@ -18,63 +20,38 @@ class GrassEater extends LivingCreature {
         ];
     }
 
-
-    choosCell(char) {
+    choosCell(char1, char2) {
         this.getNewCoordinates()
-        return super.choosCell(char)
-
-    }
-
-    mul() {
-        let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
-
-        if (newCell) {
-
-            let newX = newCell[0]
-            let newY = newCell[1]
-
-            matrix[newY][newX] = 2
-
-            let grEat = new GrassEater(newX, newY)
-            grassEaterArr.push(grEat)
-
-
-
-        }
+        return super.choosCell(char1, char2)
     }
 
     eat() {
-        let foods = this.choosCell(1)
+        let foods = this.choosCell(10, 4)
         let food = random(foods)
 
         if (food) {
-            this.energy += 5
+            reserv.pop();
+
             let newX = food[0]
             let newY = food[1]
 
-            matrix[newY][newX] = 2
+            matrix[newY][newX] = 5
             matrix[this.y][this.x] = 0
 
-            for (let i in grassArr) {
-                if (newX == grassArr[i].x && newY == grassArr[i].y) {
-                    grassArr.splice(i, 1)
 
-                    break;
-                }
-            }
 
             this.x = newX
             this.y = newY
-            if (this.energy >= 27) {
-                this.mul()
-            }
+            //     if(this.energy >= 27){
+            //         this.mul()
+            // }
 
         } else {
             this.move()
         }
 
     }
+
     move() {
         let emptyCells = this.choosCell(0)
         let newCell = random(emptyCells)
@@ -84,7 +61,7 @@ class GrassEater extends LivingCreature {
             let newX = newCell[0]
             let newY = newCell[1]
 
-            matrix[newY][newX] = 2
+            matrix[newY][newX] = 5
             matrix[this.y][this.x] = 0
 
 
@@ -98,12 +75,31 @@ class GrassEater extends LivingCreature {
 
     }
 
+    // mul(){
+    //     let emptyCells = this.choosCell(0)
+    //     let newCell = random(emptyCells)
+
+    //     if(newCell){
+
+    //         let newX = newCell[0]
+    //         let newY = newCell[1]
+
+    //         matrix[newY][newX] = 2
+
+    //         let patap = new Patap(newX,newY)
+    //         patapArr.push(patap)
+
+
+
+    //     }
+    // }
+
     die() {
         matrix[this.y][this.x] = 0
 
-        for (let i in grassEaterArr) {
-            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                grassEaterArr.splice(i, 1)
+        for (let i in patapArr) {
+            if (this.x == patapArr[i].x && this.y == patapArr[i].y) {
+                patapArr.splice(i, 1)
 
                 break;
             }
@@ -111,4 +107,3 @@ class GrassEater extends LivingCreature {
     }
 
 }
-
