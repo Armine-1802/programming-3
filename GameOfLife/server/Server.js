@@ -4,16 +4,16 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var fs = require("fs");
 
-app.use(express.static("."));
+app.use(express.static("../client"));
 
 app.get('/', function (req, res) {
     res.redirect('index.html');
 });
-server.listen(3000, () => {
+server.listen(3001, () => {
     console.log('connected');
 });
 
-function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount, bombCount, patapCount,eaterCount,pandaCount,bambukCount) {
+function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount, bombCount, patapCount, eaterCount, pandaCount, bambukCount) {
     let matrix = []
 
     for (let i = 0; i < matrixSize; i++) {
@@ -84,7 +84,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
         }
 
     }
-    
+
 
     for (let i = 0; i < pandaCount; i++) {
         let x = Math.floor(Math.random() * matrixSize)
@@ -111,21 +111,20 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
     return matrix
 }
 
-let matrix = matrixGenerator(20, 30, 17, 9, 3, 15,3,9,5)
+matrix = matrixGenerator(20, 30, 17, 9, 3, 5, 3, 9, 5)
 
 io.sockets.emit('send matrix', matrix)
+grassArr = []
+grassEaterArr = []
+predatorArr = []
+bombArr = []
+patapArr = []
+eaterArr = []
+pandaArr = []
+bambukArr = []
+reserv = []
 
-let grassArr = []
-let grassEaterArr = []
-let predatorArr = []
-let bombArr = []
-let patapArr = []
-let eaterArr = []
-let pandaArr = []
-let bambukArr = []
-let reserv = []
-
-let patnesh = 0;
+patnesh = 0;
 
 Grass = require("./grass")
 GrassEater = require("./grassEater")
@@ -198,6 +197,12 @@ function game() {
 
         }
     }
+
+    for (let i in patapArr) {
+        patapArr[i].eat()
+
+    }
+
     // console.log("dddddd", reserv.length);
 
     if (reserv.length > 0) {
@@ -224,8 +229,8 @@ function game() {
     io.sockets.emit("send matrix", matrix);
 
 }
+setInterval(game, 400)
 
-io.sockets.emit("send matrix", matrix);
 
 io.on('connection', function () {
     createObject(matrix)

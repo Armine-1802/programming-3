@@ -26,11 +26,11 @@ module.exports = class Patap extends LivingCreature {
     }
 
     eat() {
-        let foods = this.choosCell(10, 4)
-        let food = random(foods)
+        let foods = super.choosCell(10, 4)
+        let food = foods[Math.floor(Math.random() * foods.length)]
 
         if (food) {
-            reserv.pop();
+            // reserv.pop();
 
             let newX = food[0]
             let newY = food[1]
@@ -38,7 +38,25 @@ module.exports = class Patap extends LivingCreature {
             matrix[newY][newX] = 5
             matrix[this.y][this.x] = 0
 
+            for (let i in bombArr) {
+                if (newX ==  bombArr[i].x && newY == bombArr[i].y) {
+                 bombArr.splice(i, 1)
 
+                    break;
+                }
+            }
+            
+for (let i = 0; i < matrix.length; i++) {
+    for (let j= 0; i < matrix.length; i++) {
+   
+        if( matrix[newY][newX] == 10){
+            matrix[newY][newX] = 0
+        }
+    }
+    
+}
+
+         
 
             this.x = newX
             this.y = newY
@@ -53,8 +71,8 @@ module.exports = class Patap extends LivingCreature {
     }
 
     move() {
-        let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let emptyCells = super.choosCell(0)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             this.energy--

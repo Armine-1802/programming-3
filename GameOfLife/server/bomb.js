@@ -26,25 +26,23 @@ module.exports = class Bomb extends LivingCreature {
     }
 
     explode() {
-        let charecters = this.choosCell(1, 2, 3, 6)
-        let newChar = random(charecters)
-        let emptyCells = this.choosCell(0)
-        // let newCell = random(emptyCells)
-
+        let charecters = super.choosCell(1, 2, 3, 6)
+        let newChar = charecters[Math.floor(Math.random() * charecters.length)]
+        let emptyCells = super.choosCell(0)
+        
         if (newChar && emptyCells) {
             let newX = newChar[0]
             let newY = newChar[1]
 
 
-
             matrix[newY][newX] = 10
+            console.log(matrix[newY][newX] );
             // for(let i = 0; i , matrix.length; i++){
             //     for(let j = 0; j , matrix){
 
             //     }
             // }
             // reserv.push(10)
-            console.log("rrrr", reserv);
 
 
             for (let i in grassArr) {
