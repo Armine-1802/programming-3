@@ -23,3 +23,4 @@ module.exports = class Grass extends LivingCreature {
     }
 
 }
+console.log(10);
