@@ -27,7 +27,7 @@ module.exports = class Panda extends LivingCreature {
     }
 
     mul() {
-        let emptyCells = super.choosCell(0)
+        let emptyCells = this.choosCell(0)
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
@@ -46,7 +46,7 @@ module.exports = class Panda extends LivingCreature {
     }
 
     eat() {
-        let foods = super.choosCell(8)
+        let foods = this.choosCell(8)
         let food = foods[Math.floor(Math.random() * foods.length)]
 
         if (food) {
@@ -77,7 +77,7 @@ module.exports = class Panda extends LivingCreature {
 
     }
     move() {
-        let emptyCells = super.choosCell(0)
+        let emptyCells = this.choosCell(0)
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {

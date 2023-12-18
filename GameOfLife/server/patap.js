@@ -26,43 +26,32 @@ module.exports = class Patap extends LivingCreature {
     }
 
     eat() {
-        let foods = super.choosCell(10, 4)
+        let foods = this.choosCell(10, 4)
         let food = foods[Math.floor(Math.random() * foods.length)]
 
         if (food) {
-            // reserv.pop();
-
+            
             let newX = food[0]
             let newY = food[1]
 
-            matrix[newY][newX] = 5
-            matrix[this.y][this.x] = 0
+            for (let i = 0; i < matrix.length; i++) {
+                for (let j = 0; j < matrix[i].length; j++) {
 
-            for (let i in bombArr) {
-                if (newX ==  bombArr[i].x && newY == bombArr[i].y) {
-                 bombArr.splice(i, 1)
+                    if (matrix[newY][newX] == 10) {
 
-                    break;
+                        matrix[newY][newX] = 5
+                        matrix[this.y][this.x] = 0
+
+                    }
                 }
-            }
-            
-for (let i = 0; i < matrix.length; i++) {
-    for (let j= 0; i < matrix.length; i++) {
-   
-        if( matrix[newY][newX] == 10){
-            matrix[newY][newX] = 0
-        }
-    }
-    
-}
 
-         
+            }
+
+
 
             this.x = newX
             this.y = newY
-            //     if(this.energy >= 27){
-            //         this.mul()
-            // }
+
 
         } else {
             this.move()
@@ -71,7 +60,7 @@ for (let i = 0; i < matrix.length; i++) {
     }
 
     move() {
-        let emptyCells = super.choosCell(0)
+        let emptyCells = this.choosCell(0)
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
@@ -92,25 +81,6 @@ for (let i = 0; i < matrix.length; i++) {
         }
 
     }
-
-    // mul(){
-    //     let emptyCells = this.choosCell(0)
-    //     let newCell = random(emptyCells)
-
-    //     if(newCell){
-
-    //         let newX = newCell[0]
-    //         let newY = newCell[1]
-
-    //         matrix[newY][newX] = 2
-
-    //         let patap = new Patap(newX,newY)
-    //         patapArr.push(patap)
-
-
-
-    //     }
-    // }
 
     die() {
         matrix[this.y][this.x] = 0

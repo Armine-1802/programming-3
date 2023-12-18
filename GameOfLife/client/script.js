@@ -34,13 +34,11 @@ function nkarel(matrix) {
                 textSize(side - 12)
                 text("💣", x * side, y * side + 32)
             } else if (matrix[y][x] == 10) {
-                // reserv.push(10)
                 fill("orange")
                 rect(x * side, y * side, side, side)
                 textSize(side - 12)
                 text("🔥", x * side, y * side + 32)
             } else if (matrix[y][x] == 5) {
-        
                 fill("peru")
                 rect(x * side, y * side, side, side)
                 textSize(side - 12)

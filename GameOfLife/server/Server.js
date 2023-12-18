@@ -206,9 +206,9 @@ function game() {
     // console.log("dddddd", reserv.length);
 
     if (reserv.length > 0) {
-        for (let i in patapArr) {
-            patapArr[i].eat()
-        }
+        // for (let i in patapArr) {
+        //     patapArr[i].eat()
+        // }
 
 
     } else if (reserv.length <= 0 && patapArr.length > 0) {
@@ -235,5 +235,17 @@ setInterval(game, 400)
 io.on('connection', function () {
     createObject(matrix)
 })
+
+let objStatistic = {
+    patap:0
+}
+
+
+setInterval(function(){
+    objStatistic.patap = patapArr.length;
+
+    fs.writeFile("statistic.json", JSON.stringify(objStatistic))
+
+},1000)
 
 
