@@ -237,15 +237,28 @@ io.on('connection', function () {
 })
 
 let objStatistic = {
-    patap:0
+    patap: 0,
+    panda: 0,
+    bambuk: 0,
+    bomb: 0,
+    eater: 0,
+    grass: 0,
+    grassEaterArr: 0,
+    predator: 0,
 }
 
 
-setInterval(function(){
+setInterval(function () {
     objStatistic.patap = patapArr.length;
-
+    objStatistic.panda = pandaArr.length;
+    objStatistic.bambuk = bambukArr.length;
+    objStatistic.bomb = bombArr.length;
+    objStatistic.eater = eaterArr.length;
+    objStatistic.grass = grassArr.length;
+    objStatistic.grassEater = GrassEaterArr.length;
+    objStatistic.predator = predatorArr.length;
     fs.writeFile("statistic.json", JSON.stringify(objStatistic))
 
-},1000)
+}, 1000)
 
 
