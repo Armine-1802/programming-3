@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="socket.io/socket.io.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
 </head>
+
 <body>
-    <h1>Game Of Life by Armine</h1>
-    <h2>Programming ||</h2>
+  <h1>Game Of Life by Armine</h1>
+  <h2>Programming ||</h2>
 
+  <button id="Spring"> Spring </button>
+  <button id="Summer"> Summer </button>
+  <button id="Autumn"> Autumn </button>
+  <button id="Winter"> Winter </button>
 
-    <h3>Տեղեկություն կերպարների մասին</h1>
+  <h3>Տեղեկություն կերպարների մասին</h1>
 
-<table id="customers">
-  <tr>
-      <th>Նկարագրություն</th>
-    <th>Կերպար</th>
-    <th>Գույն</th>
-  </tr>
-  <tr>
-    <td>բազմանում է հարևան 8 վանդակներում</td>
-    <td>Խոտ</td>
-    <td style="background-color: green;">Կանաչ </td>
-  </tr>
-  <tr>
-    <td>Ուտում են խոտերին</td>
-    <td>Խոտակեր</td>
-    <td style="background-color: yellow;">Դեղին</td>
-  </tr>
-  <tr>
-    <td>Ուտում են խոտերին և Խոտակերների</td>
-    <td>Գիշատիչ</td>
-    <td style="background-color: brown;">Շականակագույն</td>
-  </tr>
-  <tr>
-    <td>Պայթում է այն ժամանակ,երթ դիպչում են նրան </td>
-    <td>Ռումբ</td>
-    <td style="background-color: black;">Սև</td>
-  </tr>
-  <tr>
-    <td>Ուտում է Ռումբին և ռումբի հետքերին </td>
-    <td>Պատապ</td>
-    <td style="background-color: peru;">Բաց Շականակագույն</td>
-  </tr>
-  <tr>
-    <td>Ուտում է բոլորին,բացի Պատապից,Պանդաից,Բամբուկից</td>
-    <td>Ուտող</td>
-    <td style="background-color: gray;">Մոխրագույն</td>
-  </tr>
-  <tr>
-    <td>Ուտում է բամբուկին</td>
-    <td>Պանդա</td>
-    <td style="background-color: white;">Սպիտակ</td>
-  </tr>
-  <tr>
-    <td>Բազմանում է հարևան 8 վանդակներում</td>
-    <td>բամբուկ</td>
-    <td style="background-color: darkolivegreen;">Թունդ կանաչ</td>
-  </tr>
- 
-</table>
+    <table id="customers">
+      <tr>
+        <th>Նկարագրություն</th>
+        <th>Կերպար</th>
+        <th>Գույն</th>
+      </tr>
+      <tr>
+        <td>բազմանում է հարևան 8 վանդակներում</td>
+        <td>Խոտ</td>
+        <td style="background-color: green;">Կանաչ </td>
+      </tr>
+      <tr>
+        <td>Ուտում են խոտերին</td>
+        <td>Խոտակեր</td>
+        <td style="background-color: yellow;">Դեղին</td>
+      </tr>
+      <tr>
+        <td>Ուտում են խոտերին և Խոտակերների</td>
+        <td>Գիշատիչ</td>
+        <td style="background-color: brown;">Շականակագույն</td>
+      </tr>
+      <tr>
+        <td>Պայթում է այն ժամանակ,երթ դիպչում են նրան </td>
+        <td>Ռումբ</td>
+        <td style="background-color: black;">Սև</td>
+      </tr>
+      <tr>
+        <td>Ուտում է Ռումբին և ռումբի հետքերին </td>
+        <td>Պատապ</td>
+        <td style="background-color: peru;">Բաց Շականակագույն</td>
+      </tr>
+      <tr>
+        <td>Ուտում է բոլորին,բացի Պատապից,Պանդաից,Բամբուկից</td>
+        <td>Ուտող</td>
+        <td style="background-color: gray;">Մոխրագույն</td>
+      </tr>
+      <tr>
+        <td>Ուտում է բամբուկին</td>
+        <td>Պանդա</td>
+        <td style="background-color: white;">Սպիտակ</td>
+      </tr>
+      <tr>
+        <td>Բազմանում է հարևան 8 վանդակներում</td>
+        <td>բամբուկ</td>
+        <td style="background-color: darkolivegreen;">Թունդ կանաչ</td>
+      </tr>
 
+    </table>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -111,7 +111,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
     return matrix
 }
 
-matrix = matrixGenerator(20, 30, 17, 9, 3, 5, 3, 9, 5)
+matrix = matrixGenerator(20, 50, 17, 9, 3, 5, 3, 9, 5)
 
 io.sockets.emit('send matrix', matrix)
 grassArr = []
@@ -255,10 +255,12 @@ setInterval(function () {
     objStatistic.bomb = bombArr.length;
     objStatistic.eater = eaterArr.length;
     objStatistic.grass = grassArr.length;
-    objStatistic.grassEater = GrassEaterArr.length;
+    objStatistic.grassEater = grassEaterArr.length;
     objStatistic.predator = predatorArr.length;
-    fs.writeFile("statistic.json", JSON.stringify(objStatistic))
+    fs.writeFile("statistic.json", JSON.stringify(objStatistic), function(){
+        console.log("write statistics info ")
+    })
 
-}, 1000)
+}, 6000)
 
 
