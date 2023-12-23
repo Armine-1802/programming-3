@@ -111,7 +111,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, predatorCount,
     return matrix
 }
 
-matrix = matrixGenerator(20, 50, 17, 9, 3, 5, 3, 9, 5)
+matrix = matrixGenerator(20, 50, 17, 9, 3, 7, 3, 9, 5)
 
 io.sockets.emit('send matrix', matrix)
 grassArr = []
@@ -229,7 +229,7 @@ function game() {
     io.sockets.emit("send matrix", matrix);
 
 }
-setInterval(game, 400)
+setInterval(game, 1000)
 
 
 io.on('connection', function () {

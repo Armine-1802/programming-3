@@ -7,13 +7,13 @@ let side = 45
 function winterFunc() {
     seasons = "Winter"
 }
-function springFunc(){
+function springFunc() {
     seasons = "Spring"
 }
-function summerFunc(){
+function summerFunc() {
     seasons = "Summer"
 }
-function autumnFunc(){
+function autumnFunc() {
     seasons = "Autumn"
 }
 
@@ -42,35 +42,61 @@ function nkarel(matrix) {
     for (let y = 0; y < matrix.length; y++) {
         for (x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                console.log("lllll",seasons)
-                if (seasons = "Winter") {
+                if (seasons == "Winter") {
                     fill("White")
                     rect(x * side, y * side, side, side)
-                    textSize(side + 12)
+                    textSize(side - 12)
                     text("❄️", x * side, y * side + 32)
-                }  else if (seasons = "Summer"){
-                    fill("pickle")
+                } else if (seasons == "Summer") {
+                    fill("lime")
                     rect(x * side, y * side, side, side)
-                    textSize(side + 12)
+                    textSize(side - 12)
                     text("🌿", x * side, y * side + 32)
-                } else if(seasons = "Autumn"){
-                    fill("camel")
+                } else if (seasons == "Autumn") {
+                    fill("#CC7722")
                     rect(x * side, y * side, side, side)
-                    textSize(side + 12)
+                    textSize(side - 12)
                     text("🍂", x * side, y * side + 32)
-                }else {
+                } else if (seasons == "Spring") {
                     fill("green")
                     rect(x * side, y * side, side, side)
-                    textSize(side + 12)
-                    text("🌱", x * side, y * side + 32)
+                    textSize(side - 12)
+                    text("🍀", x * side, y * side + 32)
+                } else {
+                    fill("darkgreen")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🌱 ", x * side, y * side + 32)
                 }
 
 
             } else if (matrix[y][x] == 2) {
-                fill("yellow")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🐮", x * side, y * side + 32)
+                if (seasons == "Winter") {
+                    fill("white")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐮 ", x * side, y * side + 32)
+                }if (seasons == "Spring"){
+                    fill("#708238")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐮", x * side, y * side + 32)
+                }else if(seasons == "Summer"){
+                    fill("#FFD300")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐄", x * side, y * side + 32)
+                }else if(seasons == "Autumn"){
+                    fill("ORANGE")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐄", x * side, y * side + 32)
+                } else {
+                    fill("yellow")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐮", x * side, y * side + 32)
+                }
             } else if (matrix[y][x] == 3) {
                 fill("brown")
                 rect(x * side, y * side, side, side)
@@ -87,10 +113,17 @@ function nkarel(matrix) {
                 textSize(side - 12)
                 text("🔥", x * side, y * side + 32)
             } else if (matrix[y][x] == 5) {
-                fill("peru")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🧸", x * side, y * side + 32)
+                if(seasons == "Winter") {
+                    fill("white")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🧸", x * side, y * side + 32)
+                }else{
+                    fill("peru")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🧸", x * side, y * side + 32)  
+                }
             } else if (matrix[y][x] == 6) {
                 fill("dimGray")
                 rect(x * side, y * side, side, side)
@@ -119,8 +152,10 @@ function nkarel(matrix) {
 
 }
 
-setInterval(
-    function () {
-        socket.on('send matrix', nkarel)
-    }, 1000
-)
+socket.on('send matrix', nkarel)
+
+// setInterval(
+//     function () {
+//         socket.on('send matrix', nkarel)
+//     }, 1000
+// )

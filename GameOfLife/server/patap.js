@@ -20,13 +20,13 @@ module.exports = class Patap extends LivingCreature {
         ];
     }
 
-    choosCell(char1, char2) {
+    choosCell(char1,) {
         this.getNewCoordinates()
-        return super.choosCell(char1, char2)
+        return super.choosCell(char1,)
     }
 
     eat() {
-        let foods = this.choosCell(10, 4)
+        let foods = this.choosCell(10,)
         let food = foods[Math.floor(Math.random() * foods.length)]
 
         if (food) {
